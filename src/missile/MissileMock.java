@@ -1,6 +1,8 @@
 package missile;
 
-public class MissileSpy implements Missile {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class MissileMock implements Missile {
     private boolean launchWasCalled = false;
     private boolean disableWasCalled = false;
 
@@ -14,11 +16,8 @@ public class MissileSpy implements Missile {
         disableWasCalled = true;
     }
 
-    public boolean launchWasCalled() {
-        return launchWasCalled;
-    }
-
-    public boolean disableWasCalled() {
-        return disableWasCalled;
+    void verifyCodeRedAbort() {
+        assertEquals(launchWasCalled, false);
+        assertEquals(disableWasCalled, true);
     }
 }
